@@ -1,10 +1,10 @@
-import { InfiniteMovingCardsDemo } from "@/components/others/InfiniteMovingCardsDemo";
+import Banner from "@/components/Banner";
 
 
 export default function Home() {
   return (
     <main>
-      <InfiniteMovingCardsDemo />
+      <Banner/>
     </main>
   );
 }
