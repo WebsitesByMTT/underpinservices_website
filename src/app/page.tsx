@@ -1,3 +1,4 @@
+import AwardWinning from "@/components/Award-Winning";
 import Banner from "@/components/Banner";
 import { WhyChooseUnderpin } from "@/components/Why-Choose-Underpin";
 import NotJustAverageAgency from "@/components/others/NotJustAverageAgency";
@@ -9,10 +10,11 @@ export default function Home() {
   return (
     <main>
       <Banner />
-      <WhyChooseUnderpin /> 
       <Vision />
       <Services />
       <NotJustAverageAgency />
+      <WhyChooseUnderpin /> 
+      <AwardWinning/>
     </main>
   );
 }

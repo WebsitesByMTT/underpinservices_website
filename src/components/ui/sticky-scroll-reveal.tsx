@@ -43,11 +43,11 @@ export const StickyScroll = ({
 
   return (
     <motion.div
-      className="lg:h-[70vh] hideScrollBar w-[90%] mx-auto overflow-y-auto lg:flex justify-center relative space-x-10 rounded-md"
+      className="lg:h-[70vh] hideScrollBar  w-[90%] mx-auto overflow-y-auto lg:flex justify-center relative space-x-10 rounded-md"
       ref={ref}
     >
-      <div className="div relative w-[100%] lg:w-[50%] justify-center flex">
-        <div className="w-full lg:translate-y-[25%]">
+      <div className="div relative w-[100%] lg:w-[50%]   justify-center flex">
+        <div className="w-full lg:translate-y-[25%] ">
           {content.map((item, index) => (
             <div key={item.title + index} className="pb-5 lg:pb-0 lg:h-full">
               <motion.div

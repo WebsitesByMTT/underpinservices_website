@@ -156,9 +156,9 @@ const content = [
 ];
 export function WhyChooseUnderpin() {
   return (
-    <div className="lg:h-screen py-5 lg:py-16">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl pb-8 lg:text-5xl xl:text-6xl text-center text-secondary font-semibold mb-10">
-        Why Choose <br /><span className="text-primary">UNDERPIN SERVICES?</span>
+    <div className="lg:h-[95vh]  pt-5 lg:pt-16">
+      <h2 className="text-2xl sm:text-3xl shadow-[0px_200px_55px_2px_rgb(255,255,255)] bg-white  md:text-4xl pb-8 lg:text-5xl xl:text-6xl text-center text-secondary font-semibold mb-1">
+        Why Choose <br /><span className="text-primary font-sweetSuckerPunch text-3xl sm:text-4xl md:text-5xl pb-8 lg:text-6xl xl:text-7xl ">UNDERPIN SERVICES?</span>
       </h2>
       <StickyScroll content={content} />
     </div>

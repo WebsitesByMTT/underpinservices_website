@@ -33,3 +33,7 @@ body {
   scrollbar-width: none;  
 }
 
+.transition{
+  transition: all .4s ease-in-out;
+}
+

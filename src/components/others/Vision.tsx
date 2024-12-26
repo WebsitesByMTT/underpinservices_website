@@ -2,8 +2,8 @@ import Logo from "../ui/Logo"
 
 const Vision = () => {
     return (
-        <section className="flex flex-col scroll-smooth">
-            <div className=" sticky top-0 h-screen w-full flex items-center justify-center">
+        <section className="flex  flex-col scroll-smooth">
+            <div className=" sticky top-0 h-screen bg-white w-full flex items-center justify-center">
                 <h2 className=" text-center tracking-tight text-secondary ">
                     <span className="font-switzer font-semibold block" style={{ fontSize: 'clamp(1.5rem, 5vw, 5.3125rem)', lineHeight: '1.3' }}>
                         Pinning Your Vision
