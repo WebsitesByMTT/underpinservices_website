@@ -5,15 +5,16 @@ import Navigation from './Navigation'
 const Header = () => {
   return (
     <header className='fixed top-0 left-0 right-0 bg-opacity-90 z-50'>
-      <div className='max-w-full lg:max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between py-4'>
+      <div className='max-w-full bg-white shadow-sm lg:bg-transparent lg:shadow-none lg:max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8'>
+        <div className='flex items-center  justify-between py-4'>
           <Image 
             src='/assets/images/logo.png' 
             alt='logo' 
             width={300} 
             height={200} 
+            priority
             quality={100} 
-            className='w-[13rem]'
+            className='w-[9rem] h-[3.6rem] lg:w-[13rem] lg:h-[5rem]'
           /> 
           <Navigation />
           <Image 

@@ -90,6 +90,7 @@ export const InfiniteMovingImage = ({
             alt={item}
             width={4000}
             height={1200}
+            priority
             className="w-full h-[50vh]"
             style={{
               objectFit: 'cover',
