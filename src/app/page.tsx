@@ -1,10 +1,10 @@
-import { InfiniteMovingCardsDemo } from "@/components/others/InfiniteMovingCardsDemo";
+import Vision from "@/components/others/Vision";
 
 
 export default function Home() {
   return (
     <main>
-      <InfiniteMovingCardsDemo />
+      <Vision />
     </main>
   );
 }
