@@ -1,5 +1,8 @@
 import Banner from "@/components/Banner";
 import { WhyChooseUnderpin } from "@/components/Why-Choose-Underpin";
+import NotJustAverageAgency from "@/components/others/NotJustAverageAgency";
+import Services from "@/components/others/Services";
+import Vision from "@/components/others/Vision";
 
 
 export default function Home() {
@@ -7,6 +10,9 @@ export default function Home() {
     <main>
       <Banner />
       <WhyChooseUnderpin /> 
+      <Vision />
+      <Services />
+      <NotJustAverageAgency />
     </main>
   );
 }

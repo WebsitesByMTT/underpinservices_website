@@ -8,6 +8,10 @@ export default {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				sweetSuckerPunch: ['var(--font-SweetSuckerPunch)'],
+				switzer: ['var(--font-switzer)'],
+			},
 			colors: {
 				background: "var(--background)",
 				foreground: "var(--foreground)",
