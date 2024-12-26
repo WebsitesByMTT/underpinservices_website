@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { sweetSuckerPunch, switzer } from "./fonts";
 import "./globals.css";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 
 
 export const metadata: Metadata = {
@@ -18,7 +20,9 @@ export default function RootLayout({
       <body
         className={`${sweetSuckerPunch.variable} ${switzer.variable}`}
       >
+        <Header />
         {children}
+        <Footer/>
       </body>
     </html>
   );
