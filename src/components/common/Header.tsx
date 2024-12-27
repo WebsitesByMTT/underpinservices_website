@@ -10,11 +10,11 @@ const Header = () => {
           <Image 
             src='/assets/images/logo.png' 
             alt='logo' 
-            width={300} 
-            height={200} 
+            width={1000} 
+            height={1000} 
             priority
             quality={100} 
-            className='w-[9rem] h-[3.6rem] lg:w-[13rem] lg:h-[5rem]'
+            className='w-[2rem] h-[3rem] lg:w-[3rem] lg:h-[5rem]'
           /> 
           <Navigation />
           <Image 

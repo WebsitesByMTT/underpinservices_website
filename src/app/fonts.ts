@@ -7,6 +7,14 @@ export const sweetSuckerPunch = localFont({
     display: 'swap',
 });
 
+export const agressive = localFont({
+    src: '../Agressive-OVVzO.ttf',
+    variable: '--font-agressive',
+    display: 'swap',
+});
+
+
+
 export const switzer = localFont({
     src: [
         {
@@ -43,7 +51,7 @@ export const switzer = localFont({
             path: '../switzer-black.woff2',
             weight: '900',
             style: 'normal',
-        }
+        },
     ],
     variable: '--font-switzer',
     display: 'swap',

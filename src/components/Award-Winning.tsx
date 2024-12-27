@@ -65,7 +65,7 @@ export default function AwardWinning() {
     ]
 
     return (
-        <section className="h-screen group transition mx-auto px-4 py-5">
+        <section className="lg:h-screen group transition mx-auto px-4 py-20">
             <div className="relative h-full w-full">
                 <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:hidden">
                     {awards.map((award, index) => (

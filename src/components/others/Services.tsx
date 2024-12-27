@@ -43,12 +43,12 @@ const servicesData = [
 
 const Services = () => {
     return (
-        <section className='h-screen flex flex-col gap-16'>
-                <h2 className="text-center tracking-tight text-secondary" style={{ fontSize: 'clamp(2rem, 5vw, 5.3125rem)', lineHeight: 'clamp(3rem, 7vw, 7.0125rem)' }}>
+        <section className='flex flex-col lg:pt-6'>
+                <h2 className="text-center pb-10 tracking-tight text-secondary" style={{ fontSize: 'clamp(2rem, 5vw, 5.3125rem)', lineHeight: 'clamp(3rem, 7vw, 7.0125rem)' }}>
                     <span className="font-switzer font-semibold">
                         Services
                     </span>
-                    <span className="block text-primary font-sweetSuckerPunch font-normal " style={{ fontSize: 'clamp(3rem, 7vw, 7.1875rem)', lineHeight: 'clamp(4rem, 9vw, 9.580625rem)' }}>we offer</span>
+                    <span className="block text-primary font-sweetSuckerPunch font-normal " style={{ fontSize: 'clamp(3rem, 7vw, 7.1875rem)', lineHeight: 'clamp(1rem, 4vw, 9.580625rem)' }}>we offer</span>
                 </h2>
             <div className='flex-grow px-16 '>
                 <Carousel plugins={[

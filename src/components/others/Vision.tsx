@@ -3,7 +3,7 @@ import Logo from "../ui/Logo"
 const Vision = () => {
     return (
         <section className="flex  flex-col scroll-smooth">
-            <div className=" sticky top-0 h-screen bg-white w-full flex items-center justify-center">
+            <div className=" sticky top-0 h-[20vh] lg:h-screen bg-white w-full flex items-center justify-center">
                 <h2 className=" text-center tracking-tight text-secondary ">
                     <span className="font-switzer font-semibold block" style={{ fontSize: 'clamp(1.5rem, 5vw, 5.3125rem)', lineHeight: '1.3' }}>
                         Pinning Your Vision
@@ -11,7 +11,7 @@ const Vision = () => {
                     <span className="block text-primary font-sweetSuckerPunch font-normal" style={{ fontSize: 'clamp(2rem, 7vw, 7.1875rem)', lineHeight: '1.3' }}>To Reality</span>
                 </h2>
             </div>
-            <div className="h-screen w-full flex items-center justify-center z-10 bg-white shadow-[0px_-59px_55px_2px_rgb(255,255,255)]" >
+            <div className="lg:h-screen w-full scale-75 flex items-center justify-center z-10 bg-white shadow-[0px_-59px_55px_2px_rgb(255,255,255)]" >
                 <div className="relative">
                     <Logo className="w-[30vw] md:w-[50vw] max-w-[22.735rem] h-auto" />
                     <Tag name="Search Engine Optimization (SEO)" className="top-[7%] right-[70%] -rotate-[6.12deg]" />
