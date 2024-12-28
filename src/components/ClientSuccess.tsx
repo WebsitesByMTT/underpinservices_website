@@ -81,7 +81,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: Testimonial, ind
         <div 
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)} 
-            className={`w-full bg-gray-100 transition-all duration-300 ease-in-out min-h-[200px]  mx-auto rounded-lg overflow-hidden ${
+            className={`w-full bg-gray-100 transition-all duration-300 ease-in-out min-h-[200px]  mx-auto rounded-lg  ${
                 isHovered ? ' shadow-lg' : ''
             } ${testimonial.rotation} ${testimonial.translate}`}
         >
@@ -100,7 +100,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: Testimonial, ind
                 <div className="mt-2">
                     <StarRating rating={testimonial.rating} />
                 </div>
-                <p className={`mt-4 text-muted-foreground transition-all duration-300 ease-in-out ${
+                <p className={`mt-4  transition-all ease-in-out ${
                     isHovered ? 'opacity-100' : 'opacity-70 lg:line-clamp-3'
                 }`}>
                     {testimonial.text}
@@ -112,7 +112,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: Testimonial, ind
 
 export default function Testimonials() {
     return (
-        <section className="relative group w-[90%] mx-auto lg:h-screen overflow-hidden px-4 py-16">
+        <section className="relative group w-[90%] mx-auto lg:h-screen overflow-hidden px-4 py-24">
             <div className="lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 pb-8 text-center">
                 <h2 className="text-5xl font-switzer xl:text-7xl font-bold">
                     Client's
@@ -121,7 +121,7 @@ export default function Testimonials() {
                 </h2>
             </div>
             <div className="relative w-full h-full">
-                <div className="grid h-full gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="lg:absolute lg:top-[50%] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%] w-full grid h-full gap-x-8 gap-y-16  md:grid-cols-2 lg:grid-cols-3">
                     {testimonials.map((testimonial, index) => (
                         <div key={index} className="z-10 h-full">
                             <TestimonialCard testimonial={testimonial} index={index} />

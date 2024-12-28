@@ -1,28 +1,46 @@
 "use client";
 import React, { useRef, useState } from "react";
-import { useMotionValueEvent, useScroll } from "framer-motion";
-import { motion } from "framer-motion";
+import { useMotionValueEvent, useScroll, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-export const StickyScroll = ({
-  content,
-  contentClassName,
-}: {
-  content: any[];
+interface CardItem {
+  title: string;
+  description: string;
+  content: React.ReactNode;
+  rotations: string;
+}
+
+interface StickyScrollProps {
+  content: CardItem[];
   contentClassName?: string;
+}
+
+export const StickyScroll: React.FC<StickyScrollProps> = ({
+  content,
+  contentClassName
 }) => {
-  const [activeCard, setActiveCard] = useState<number | null>(0);
-  
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [visitedCards, setVisitedCards] = useState<Set<number>>(new Set());
+  const [lastScrollPosition, setLastScrollPosition] = useState<number>(0);
   const ref = useRef<HTMLDivElement>(null);
+  
   const { scrollYProgress } = useScroll({
     container: ref,
     offset: ["start start", "end start"],
   });
-  const cardLength = content.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const cardsBreakpoints = content.map((_, index) => index / cardLength);
+    if (!window?.innerWidth || window.innerWidth <= 1024) {
+      setActiveCard(null);
+      return;
+    }
+
+    const cardsBreakpoints = Array.from(
+      { length: content.length }, 
+      (_, i) => i / content.length
+    );
+    
     const closestBreakpointIndex = cardsBreakpoints.reduce(
       (acc, breakpoint, index) => {
         const distance = Math.abs(latest - breakpoint);
@@ -33,28 +51,47 @@ export const StickyScroll = ({
       },
       0
     );
-    if (window?.innerWidth>1024){
-      setActiveCard(closestBreakpointIndex);          
+
+    // Determine scroll direction
+    const isScrollingUp = latest < lastScrollPosition;
+    setLastScrollPosition(latest);
+
+    if (isScrollingUp) {
+      // Remove cards from visited set that are above the current position
+      setVisitedCards(prev => {
+        const newSet = new Set(prev);
+        for (let i = closestBreakpointIndex + 1; i < content.length; i++) {
+          newSet.delete(i);
+        }
+        return newSet;
+      });
     } else {
-      setActiveCard(null);
+      // Add current card to visited set
+      setVisitedCards(prev => new Set([...prev, closestBreakpointIndex]));
     }
-  
+
+    setActiveCard(closestBreakpointIndex);
   });
 
+  const shouldAnimateCard = (index: number) => visitedCards.has(index);
+
   return (
+    
     <motion.div
-      className="lg:h-[70vh] hideScrollBar  w-[90%] mx-auto overflow-y-auto lg:flex justify-center relative space-x-10 rounded-md"
+      className="lg:h-[70vh] hideScrollBar w-[90%] mx-auto overflow-y-auto lg:flex justify-center relative space-x-10 rounded-md"
       ref={ref}
     >
-      <div className="div relative w-[100%] lg:w-[50%]   justify-center flex">
-        <div className="w-full lg:translate-y-[25%] ">
+      {/* Left Section */}
+      <div className="relative w-[100%] lg:w-[50%] justify-center flex">
+        <div className="w-full lg:translate-y-[25%]">
           {content.map((item, index) => (
             <div key={item.title + index} className="pb-5 lg:pb-0 lg:h-full">
               <motion.div
                 initial={{ opacity: 1 }}
                 animate={{
-                  opacity: activeCard?activeCard === index ? 1 : .3:1, 
+                  opacity: shouldAnimateCard(index) ? (activeCard === index ? 1 : 0.3) : 1,
                 }}
+                transition={{ duration: 0.3 }}
               >
                 <div className="flex gap-x-2">
                   <Image
@@ -66,7 +103,7 @@ export const StickyScroll = ({
                     alt="icon"
                   />
                   <div>
-                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-secondary">
+                    <h2 className="text-2xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-5xl  font-bold text-secondary">
                       {item.title}
                     </h2>
                     <Image
@@ -83,9 +120,10 @@ export const StickyScroll = ({
               <motion.p
                 initial={{ opacity: 1 }}
                 animate={{
-                  opacity: activeCard?activeCard === index ? 1 : .3:1, 
+                  opacity: shouldAnimateCard(index) ? (activeCard === index ? 1 : 0.3) : 1,
                 }}
-                className="text-sm md:text-xl lg:text-2xl xl:text-3xl text-[#737373] w-full lg:w-[95%] xl:w-[80%] mt-3 lg:mt-10"
+                transition={{ duration: 0.3 }}
+                className="text-sm md:text-xl font-switzer font-normal lg:text-2xl 2xl:text-3xl text-[#737373] w-full lg:w-[95%] xl:w-[80%] mt-3 lg:mt-10"
               >
                 {item.description}
               </motion.p>
@@ -97,23 +135,23 @@ export const StickyScroll = ({
         </div>
       </div>
 
-      <div className="w-full lg:w-[50%] lg:block hidden lg:sticky lg:top-0">
+      <div className="w-full lg:w-[50%] py-10 lg:block hidden lg:sticky lg:top-0">
         <div className={cn("rounded-md bg-white lg:relative", contentClassName)}>
           {content.map((item, index) => (
             <div
               key={index}
               className={cn(
-                "lg:absolute w-[90%] mx-[10%] transition-transform duration-500",
+                `lg:absolute ${item?.rotations} w-[90%] mx-[10%] transition-transform duration-500`,
                 {
-                  "lg:translate-y-[-100%]": activeCard !== index,
-                  "lg:translate-y-0": activeCard === index, 
+                  "lg:translate-y-[-150%]": shouldAnimateCard(index) && activeCard !== index,
+                  "lg:translate-y-0": !shouldAnimateCard(index) || activeCard === index,
                 }
               )}
               style={{
                 zIndex: content.length - index,
               }}
             >
-              {item?.content}
+              {item.content}
             </div>
           ))}
         </div>

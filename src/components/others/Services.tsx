@@ -12,39 +12,39 @@ const servicesData = [
     {
         title: 'Digital Marketing',
         description: 'In this digital era, effective marketing is very crucial. We provide SEO to PPC advertising.',
-        image: '/digital-marketing.png'
+        image: '/assets/service/digital-marketing.png'
     },
     {
         title: 'Graphic Designing',
         description: "Visuals are very vital to showcase your brand's presence",
-        image: '/digital-marketing.png'
+        image: '/assets/service/graphic-design.png'
     },
     {
         title: 'Content Marketing',
         description: 'With our video editing services transform raw footage into engaging stories',
-        image: '/digital-marketing.png'
+        image: '/assets/service/content-marketing.png'
     },
     {
         title: 'Software Development',
         description: 'With our software development team, experience the enhanced efficiency',
-        image: '/digital-marketing.png'
+        image: '/assets/service/software-development.png'
     },
     {
         title: 'Motion Graphics',
         description: 'Bring your ideas to life, with our animation and motion graphics services',
-        image: '/digital-marketing.png'
+        image: '/assets/service/motion-graphics.png'
     },
     {
         title: 'Game Development',
         description: 'We embrace a complete game development cycle, starting from the conceptual stage to fully developed games',
-        image: '/digital-marketing.png'
+        image: '/assets/service/game-development.png'
     }
 ]
 
 const Services = () => {
     return (
         <section className='flex flex-col lg:pt-6'>
-                <h2 className="text-center pb-10 tracking-tight text-secondary" style={{ fontSize: 'clamp(2rem, 5vw, 5.3125rem)', lineHeight: 'clamp(3rem, 7vw, 7.0125rem)' }}>
+                <h2 className="text-center pb-24 tracking-tight text-secondary" style={{ fontSize: 'clamp(2rem, 5vw, 5.3125rem)', lineHeight: 'clamp(3rem, 7vw, 7.0125rem)' }}>
                     <span className="font-switzer font-semibold">
                         Services
                     </span>

@@ -37,3 +37,34 @@ body {
   transition: all .4s ease-in-out;
 }
 
+
+.animation-y{
+  animation: smoothTranslateY 2s ease-in-out infinite;
+}
+
+@keyframes smoothTranslateY {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.scroller-content {
+  animation: scroll var(--animation-duration) linear infinite var(--animation-direction);
+  display: flex;
+  width: 200%; /* Ensures seamless looping with two images */
+}

@@ -10,7 +10,7 @@ const NotJustAverageAgency = () => {
 
     return (
         <section className='pt-24'>
-            <h2 className="text-center tracking-tight text-secondary" style={{ fontSize: 'clamp(1.6rem, 4.2vw, 4.5rem)', lineHeight: 'clamp(2rem, 6vw, 6.0125rem)' }}>
+            <h2 className="text-center pb-20 tracking-tight text-secondary" style={{ fontSize: 'clamp(1.6rem, 4.2vw, 4.5rem)', lineHeight: 'clamp(2rem, 6vw, 6.0125rem)' }}>
                 <span className="font-switzer font-semibold">
                     we&apos;re not just your average agency
                 </span>

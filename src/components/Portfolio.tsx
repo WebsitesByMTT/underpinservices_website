@@ -35,7 +35,7 @@ const Portfolio = () => {
     
     return (
         <section className='py-12 sm:py-16 md:py-20 lg:py-24 w-[95%] lg:w-[90%] mx-auto'>
-            <h2 className="text-center tracking-tight text-primary font-sweetSuckerPunch text-4xl md:text-5xl lg:text-6xl xl:text-7xl" 
+            <h2 className="text-center  tracking-tight text-primary font-sweetSuckerPunch text-4xl md:text-5xl lg:text-6xl xl:text-7xl" 
                 style={{ lineHeight: 'clamp(2rem, 6vw, 6.0125rem)' }}>
                 PORTFOLIO
             </h2>
