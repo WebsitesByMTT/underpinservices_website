@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export const InfiniteMovingImage = ({
   items,
@@ -17,87 +17,88 @@ export const InfiniteMovingImage = ({
   pauseOnHover?: boolean;
   className?: string;
 }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
-    addAnimation();
-  }, []);
-  const [start, setStart] = useState(false);
-  function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
+      // Duplicate the items for seamless scrolling
       scrollerContent.forEach((item) => {
         const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
+        scrollerRef.current?.appendChild(duplicatedItem);
       });
 
-      getDirection();
-      getSpeed();
       setStart(true);
     }
-  }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards"
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse"
-        );
-      }
+  }, []);
+
+  const getAnimationDuration = () => {
+    switch (speed) {
+      case "fast":
+        return "5s";
+      case "normal":
+        return "20s";
+      default:
+        return "40s";
     }
   };
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "5s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
-      }
-    }
-  };
+
   return (
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "relative overflow-hidden w-full z-20",
+        "[mask-image:linear-gradient(to right, transparent, white 20%, white 80%, transparent)]",
         className
       )}
     >
       <div
         ref={scrollerRef}
         className={cn(
-          " flex  gap-x-2  flex-nowrap",
-          start && "animate-scroll ",
+          "flex gap-x-2 flex-nowrap will-change-transform",
+          start && "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
+        style={{
+          animation: `scroll-${direction} ${getAnimationDuration()} linear infinite`,
+        }}
       >
-        {items.map((item,ind) => (
+        {items.map((item, index) => (
           <Image
-            quality={100}
-            key={ind}
+            key={index}
             src={item}
-            alt={item}
+            alt={`Image ${index}`}
             width={4000}
             height={1200}
+            quality={100}
             priority
-            className="w-full h-[50vh]"
-            style={{
-              objectFit: 'cover',
-            }}
+            className="w-full h-[50vh] object-cover"
           />
         ))}
       </div>
+
+      {/* CSS for animations */}
+      <style jsx>{`
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0%);
+          }
+        }
+      `}</style>
     </div>
   );
 };

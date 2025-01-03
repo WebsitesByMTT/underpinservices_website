@@ -37,8 +37,8 @@ export default function Partners() {
     ]
 
     return (
-        <section className="w-[90%] mx-auto px-4 py-16">
-            <h2 className="text-center tracking-tight pb-20 text-primary font-sweetSuckerPunch" style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 'clamp(2rem, 6vw, 6.0125rem)' }}>
+        <section className="w-[90%] mx-auto px-4  lg:py-16">
+            <h2 className="text-center tracking-tight pb-10 lg:pb-20 text-primary font-sweetSuckerPunch" style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 'clamp(2rem, 6vw, 6.0125rem)' }}>
                 Partners
             </h2>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

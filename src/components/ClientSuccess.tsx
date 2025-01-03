@@ -1,69 +1,50 @@
 'use client'
-import { Star } from 'lucide-react'
-import Image from "next/image"
-import { useState } from 'react'
+import { motion } from 'framer-motion';
+import Image from "next/image";
+import { Star } from 'lucide-react';
 
-interface Testimonial {
-    name: string
-    image: string
-    rating: number
-    text: string
-    rotation?: string
-    translate?: string
-}
-
-const testimonials: Testimonial[] = [
+const testimonials = [
     {
         name: "Michael Davis",
         image: "/assets/client/client1.png",
         rating: 5,
         text: "UnderPin has been an invaluable partner in our digital marketing journey. Their team's expertise in SEO and PPC has significantly boosted our online visibility and generated more leads. We're particularly impressed with their ability to tailor strategies to our specific needs. Highly recommended",
-        rotation: "lg:-rotate-6 group-hover:rotate-0",
-        translate: "lg:translate-y-36 lg:translate-x-20 group-hover:translate-y-0 group-hover:translate-x-0"
     },
     {
         name: "Sarah Miller",
         image: "/assets/client/client2.png",
         rating: 5,
         text: "Creative team at UnderPin is nothing less than fabulous! They have contributed to the overall strategy of establishing the unique brand image through bright and distinguishing graphic design as well as producing comprehensible and eye-popping video materials. We're thrilled with the results!",
-        translate: "lg:translate-y-36  group-hover:translate-y-0"
     },
     {
         name: "Emily Carter",
         image: "/assets/client/client3.png",
         rating: 5,
         text: "As a small business owner, I was hesitant to invest in digital marketing. But UnderPin made the process easy and affordable. Their team provided excellent customer service and delivered impressive results. I'm grateful for their support!",
-        rotation: "lg:rotate-[12deg] group-hover:rotate-0",
-        translate: "lg:translate-y-40 lg:-translate-x-20 group-hover:translate-y-0 group-hover:translate-x-0"
     },
     {
         name: "David Lee",
         image: "/assets/client/client4.png",
         rating: 5,
         text: "The UnderPin software development team has played a significant role in optimising our performance. Their custom software solutions have increased our efficiency and productivity. We're impressed with their technical expertise and dedication to delivering high-quality results.",
-        rotation: "lg:rotate-[12deg] group-hover:rotate-0",
-        translate: "lg:-translate-y-0  lg:translate-x-20 group-hover:translate-y-0 group-hover:translate-x-0"
     },
     {
         name: "John Smith",
         image: "/assets/client/client5.png",
         rating: 5,
         text: "UnderPin's game development team has brought our gaming vision to life. Their expertise in game design and development has resulted in a truly immersive and engaging gaming experience. We're excited to see what they'll create next!",
-        translate: "lg:translate-y-16  lg:group-hover:translate-y-0"
     },
     {
         name: "Jane Doe",
         image: "/assets/client/client6.png",
         rating: 5,
         text: "Their team is great and always courteous. I deal with them frequently via video call to discuss new strategy or if it's the detailed evaluation of our website analytics report. UnderPin has understood and helped our business to grow in every aspect like online presence, generate more leads and brand engagement.  I highly recommend them !!.",
-        rotation: "lg:-rotate-[12deg] group-hover:rotate-0",
-        translate: "lg:translate-y-0 lg:-translate-x-24 group-hover:translate-y-0 group-hover:translate-x-0"
     }
 ]
 
 function StarRating({ rating }: { rating: number }) {
     return (
-        <div className="flex gap-0.5">
+        <div className="flex gap-0.5 justify-center">
             {[...Array(rating)].map((_, i) => (
                 <Star
                     key={i}
@@ -71,22 +52,14 @@ function StarRating({ rating }: { rating: number }) {
                 />
             ))}
         </div>
-    )
+    );
 }
 
-function TestimonialCard({ testimonial, index }: { testimonial: Testimonial, index: number }) {
-    const [isHovered, setIsHovered] = useState(false);
-
+function TestimonialCard({ testimonial }: any) {
     return (
-        <div 
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)} 
-            className={`w-full bg-gray-100 transition-all duration-300 ease-in-out min-h-[200px]  mx-auto rounded-lg  ${
-                isHovered ? ' shadow-lg' : ''
-            } ${testimonial.rotation} ${testimonial.translate}`}
-        >
-            <div className="p-6">
-                <div className="flex items-center gap-3">
+        <div className="w-full bg-gray-100 mx-auto rounded-lg overflow-hidden flex items-center justify-center">
+            <div className="p-6 w-full flex flex-col items-center justify-center">
+                <div className="flex items-center gap-3 justify-center">
                     <Image
                         src={testimonial.image}
                         alt={`${testimonial.name}'s avatar`}
@@ -95,14 +68,12 @@ function TestimonialCard({ testimonial, index }: { testimonial: Testimonial, ind
                         quality={100}
                         className="w-[3rem] h-[3rem] rounded-full"
                     />
-                    <h3 className="font-semibold">{testimonial.name}</h3>
+                    <h3 className="font-semibold text-center">{testimonial.name}</h3>
                 </div>
                 <div className="mt-2">
                     <StarRating rating={testimonial.rating} />
                 </div>
-                <p className={`mt-4  transition-all ease-in-out ${
-                    isHovered ? 'opacity-100' : 'opacity-70 lg:line-clamp-3'
-                }`}>
+                <p className="mt-4 text-center opacity-70">
                     {testimonial.text}
                 </p>
             </div>
@@ -112,24 +83,34 @@ function TestimonialCard({ testimonial, index }: { testimonial: Testimonial, ind
 
 export default function Testimonials() {
     return (
-        <section className="relative group w-[90%] mx-auto lg:h-screen overflow-hidden px-4 py-24">
-            <div className="lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 pb-8 text-center">
-                <h2 className="text-5xl font-switzer xl:text-7xl font-bold">
+        <section
+            className="relative group w-full overflow-hidden px-4 py-12 lg:py-24"
+        >
+            <div className="absolute left-1/2 lg:top-24 -translate-x-1/2 z-20 w-full text-center">
+                <h2 className="text-4xl lg:text-5xl font-switzer xl:text-7xl font-bold">
                     Client's
                     <br />
-                    <span className="text-[#FF6B35] font-sweetSuckerPunch tracking-wide text-6xl xl:text-8xl">SUCCESS STORIES</span>
+                    <span className="text-[#FF6B35] font-sweetSuckerPunch tracking-wide text-5xl lg:text-6xl xl:text-8xl">
+                        SUCCESS STORIES
+                    </span>
                 </h2>
             </div>
-            <div className="relative w-full h-full">
-                <div className="lg:absolute lg:top-[50%] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%] w-full grid h-full gap-x-8 gap-y-16  md:grid-cols-2 lg:grid-cols-3">
+            <div className="relative w-full h-full mt-40 lg:mt-48">
+                <div className="w-full lg:w-[90%] mx-auto grid gap-x-8 gap-y-8 lg:gap-y-16 md:grid-cols-2 lg:grid-cols-3">
                     {testimonials.map((testimonial, index) => (
-                        <div key={index} className="z-10 h-full">
-                            <TestimonialCard testimonial={testimonial} index={index} />
-                        </div>
+                        <motion.div
+                            key={index}
+                            className="z-10 w-full flex justify-center testimonial-card"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once:false, amount: 0.2 }}
+                            transition={{ duration: 0.2, delay: index * 0.1 }}
+                        >
+                            <TestimonialCard testimonial={testimonial} />
+                        </motion.div>
                     ))}
                 </div>
             </div>
         </section>
-    )
+    );
 }
-

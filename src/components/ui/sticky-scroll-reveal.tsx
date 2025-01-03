@@ -78,11 +78,11 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
   return (
     
     <motion.div
-      className="lg:h-[70vh] hideScrollBar w-[90%] mx-auto overflow-y-auto lg:flex justify-center relative space-x-10 rounded-md"
+      className="lg:h-[70vh] hideScrollBar  w-[94%] lg:w-[90%] mx-auto overflow-y-auto lg:flex justify-center relative space-x-10 rounded-md"
       ref={ref}
     >
       {/* Left Section */}
-      <div className="relative w-[100%] lg:w-[50%] justify-center flex">
+      <div className="relative w-[100%]  lg:w-[50%] justify-center flex">
         <div className="w-full lg:translate-y-[25%]">
           {content.map((item, index) => (
             <div key={item.title + index} className="pb-5 lg:pb-0 lg:h-full">
@@ -141,7 +141,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
             <div
               key={index}
               className={cn(
-                `lg:absolute ${item?.rotations} w-[90%] mx-[10%] transition-transform duration-500`,
+                `lg:absolute ${item?.rotations} w-[90%] scale-110 mx-[10%] transition-transform duration-500`,
                 {
                   "lg:translate-y-[-150%]": shouldAnimateCard(index) && activeCard !== index,
                   "lg:translate-y-0": !shouldAnimateCard(index) || activeCard === index,

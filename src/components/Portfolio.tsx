@@ -46,7 +46,7 @@ const Portfolio = () => {
                     {titles[expand]}
                 </h2>
 
-                <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-5">
+                <div className="flex flex-col md:flex-row md:items-center gap-y-2 md:gap-y-0 md:gap-5">
                     {portfolio?.map((item, ind) => (
                         <button 
                             key={ind} 
@@ -55,7 +55,7 @@ const Portfolio = () => {
                                 h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[68.5vh]
                                 ${expand === ind 
                                     ? 'w-full md:w-[50%]' 
-                                    : 'w-full md:w-[10%]'}
+                                    : 'w-full h-[5rem]  lg:w-[10%]'}
                                 mb-4 md:mb-0`}
                         >
                             <div className="absolute inset-0 w-full h-full">

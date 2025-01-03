@@ -4,8 +4,7 @@ import Link from 'next/link';
 export default function ScheduleButton() {
   return (
     <div className="z-[999] fixed right-[7%] bottom-[7%]">
-      <Link 
-        href={'#'}
+      <button 
         className="
           px-7
           py-3
@@ -43,7 +42,7 @@ export default function ScheduleButton() {
           <PhoneOutgoing />
         </div>
         <span>Schedule A Free Call</span>
-      </Link>
+      </button>
     </div>
   );
 }

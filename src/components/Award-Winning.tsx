@@ -1,10 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AwardWinning() {
+    const sectionRef = useRef<HTMLElement>(null);
+    const awardsRef = useRef<HTMLDivElement>(null);
+
     const awards = [
         {
             src: "/assets/awards/award1.png",
@@ -68,37 +74,39 @@ export default function AwardWinning() {
         },
     ];
 
-    const [scrollY, setScrollY] = useState(0);
-
     useEffect(() => {
-        const section = document.getElementById("award-section");
+        if (sectionRef.current && awardsRef.current) {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true,
+                },
+            });
 
-        const handleScroll = () => {
-            if (!section) return;
-
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const scrollPosition = window.scrollY;
-
-            // Start animation when the section's top touches the top of the viewport
-            if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
-                const progress = (scrollPosition - sectionTop) / sectionHeight;
-                setScrollY(progress * 100); // Calculate translate-y as a percentage
-            } else if (scrollPosition < sectionTop) {
-                setScrollY(0); // Reset before section reaches the viewport
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+            tl.to(awardsRef.current, {
+                y: "-10%",
+                ease: "none",
+            });
+        }
     }, []);
 
     return (
         <section
+            ref={sectionRef}
             id="award-section"
-            className="lg:h-screen group transition mx-auto px-4 pt-20"
+            className="lg:h-screen group transition mx-auto px-4"
         >
             <div className="relative h-full w-full">
+                {/* Mobile/Tablet Heading */}
+                <div className="mb-12  text-center lg:hidden">
+                    <h2 className="text-2xl font-bold md:text-3xl">
+                        2024 Award-Winning
+                        <br />
+                        <span className="text-[#FF6B35]">DIGITAL MARKETING AGENCY</span>
+                    </h2>
+                </div>
                 {/* Mobile layout */}
                 <div className="grid grid-cols-2 h-full w-full gap-4 lg:gap-8 md:grid-cols-3 lg:hidden">
                     {awards.map((award, index) => (
@@ -109,16 +117,16 @@ export default function AwardWinning() {
                                 width={1000}
                                 height={1000}
                                 quality={100}
-                                className="h-[11rem] w-[11rem] object-contain md:h-24 md:w-24"
+                                className="h-[11rem] w-[11rem] animation-y object-contain md:h-24 md:w-24"
                             />
                         </div>
                     ))}
                 </div>
 
                 {/* Desktop Circular Layout */}
-                <div className="hidden  lg:block h-full">
+                <div className="hidden lg:block h-full">
                     <h2
-                        className="absolute top-1/2 left-1/2  translate-x-[-50%] translate-y-[-50%] text-center pb-20 tracking-tight text-secondary"
+                        className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-center pb-20 tracking-tight text-secondary"
                         style={{
                             fontSize: "clamp(1.6rem, 4.2vw, 4.5rem)",
                             lineHeight: "clamp(2rem, 6vw, 6.0125rem)",
@@ -138,18 +146,8 @@ export default function AwardWinning() {
                         </span>
                     </h2>
 
-                    {/* Move on scroll with framer-motion */}
-                    <motion.div
-                        className="h-full"
-                        style={{
-                            transform: ` translateY(-${scrollY}%)`,
-                        }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 100,
-                            damping: 25,
-                        }}
-                    >
+                    {/* GSAP controlled div */}
+                    <div ref={awardsRef} className="h-full">
                         {awards?.map((award, index) => (
                             <div
                                 key={index}
@@ -165,18 +163,12 @@ export default function AwardWinning() {
                                 />
                             </div>
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
 
-                {/* Mobile/Tablet Heading */}
-                <div className="mb-8 pt-8 text-center lg:hidden">
-                    <h2 className="text-2xl font-bold md:text-3xl">
-                        2024 Award-Winning
-                        <br />
-                        <span className="text-[#FF6B35]">DIGITAL MARKETING AGENCY</span>
-                    </h2>
-                </div>
+                
             </div>
         </section>
     );
 }
+

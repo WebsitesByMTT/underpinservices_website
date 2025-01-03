@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import React from "react";
 import Image from "next/image";
 import { StickyScroll } from "./ui/sticky-scroll-reveal";
@@ -164,10 +164,10 @@ const content = [
     rotations:'rotate-12'
   },
 ];
-export function WhyChooseUnderpin() {
+export const WhyChooseUnderpin=()=> {
   return (
     <div className="pt-5 lg:pt-28">
-      <h2 className="text-2xl  sm:text-3xl  md:text-4xl pb-20 lg:text-5xl xl:text-6xl text-center text-secondary font-semibold mb-1">
+      <h2 className="text-2xl  sm:text-3xl  md:text-4xl pb-5 pt-10 lg:pt-0 lg:pb-20 lg:text-5xl xl:text-6xl text-center text-secondary font-semibold mb-1">
         Why Choose <br /><span className="text-primary font-sweetSuckerPunch text-3xl sm:text-4xl md:text-5xl pb-8 lg:text-6xl xl:text-7xl ">UNDERPIN SERVICES?</span>
       </h2>
       <StickyScroll  content={content} />

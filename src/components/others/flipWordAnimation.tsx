@@ -1,6 +1,5 @@
 import React from 'react'
 import { FlipWords } from '../ui/flip-words'
-import Image from 'next/image'
 
 const FlipWordsAnimation = () => {
   const words = ['Schedule Free Call', 'Get Free Answer','Lets Discuss','Schedule Now']
