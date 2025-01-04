@@ -23,11 +23,6 @@ export const switzer = localFont({
             style: 'normal',
         },
         {
-            path: '../switzer-extraLight.woff2',
-            weight: '200',
-            style: 'normal',
-        },
-        {
             path: '../switzer-light.woff2',
             weight: '300',
             style: 'normal',
