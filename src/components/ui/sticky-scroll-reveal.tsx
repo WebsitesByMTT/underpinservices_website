@@ -78,14 +78,14 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
   return (
     
     <motion.div
-      className="lg:h-[70vh] hideScrollBar  w-[94%] lg:w-[90%] mx-auto overflow-y-auto lg:flex justify-center relative space-x-10 rounded-md"
+      className="lg:h-[70vh] hideScrollBar  w-[94%] lg:w-[90%] mx-auto overflow-y-auto lg:flex justify-center  relative lg:space-x-10 rounded-md"
       ref={ref}
     >
       {/* Left Section */}
-      <div className="relative w-[100%]  lg:w-[50%] justify-center flex">
+      <div className="relative w-[100%]  lg:w-[50%] justify-center lg:justify-start flex">
         <div className="w-full lg:translate-y-[25%]">
           {content.map((item, index) => (
-            <div key={item.title + index} className="pb-5 lg:pb-0 lg:h-full">
+            <div key={item.title + index} className="pb-8 lg:pb-0 lg:h-full">
               <motion.div
                 initial={{ opacity: 1 }}
                 animate={{
@@ -93,7 +93,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="flex gap-x-2">
+                <div className="flex  gap-x-5 lg:gap-x-2 justify-center lg:justify-start">
                   <Image
                     src="/assets/images/icon.png"
                     width={200}
@@ -103,7 +103,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
                     alt="icon"
                   />
                   <div>
-                    <h2 className="text-2xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-5xl  font-bold text-secondary">
+                    <h2 className="text-4xl md:text-4xl font-sweetSuckerPunch lg:text-3xl xl:text-4xl 2xl:text-5xl tracking-wide  font-thin text-secondary">
                       {item.title}
                     </h2>
                     <Image
@@ -111,7 +111,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
                       width={1000}
                       quality={100}
                       height={1000}
-                      className="h-[1.4rem] md:h-[1.8rem] lg:h-[2rem] w-full"
+                      className="h-[2rem] md:h-[1.8rem] lg:h-[2rem] w-[9rem] lg:w-full"
                       alt="icon"
                     />
                   </div>
@@ -123,7 +123,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
                   opacity: shouldAnimateCard(index) ? (activeCard === index ? 1 : 0.3) : 1,
                 }}
                 transition={{ duration: 0.3 }}
-                className="text-sm md:text-xl font-switzer font-normal lg:text-2xl 2xl:text-3xl text-[#737373] w-full lg:w-[95%] xl:w-[80%] mt-3 lg:mt-10"
+                className="text-sm md:text-xl font-switzer py-2 lg:py-0 text-center lg:text-start font-normal lg:text-2xl 2xl:text-3xl text-[#737373] tracking-wide w-[90%] mx-auto lg:w-[95%] xl:w-[80%] mt-3 lg:mt-10"
               >
                 {item.description}
               </motion.p>

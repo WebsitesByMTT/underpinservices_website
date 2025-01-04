@@ -17,7 +17,9 @@ const Navlinks: NavLink[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Services', href: '/services' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Packages', href: '/package' },
+  { name: 'Industry', href: '/industry' },
 ]
 
 const Header = () => {
@@ -63,13 +65,13 @@ const Header = () => {
             height={1000}
             priority
             quality={100}
-            className="w-[2rem] h-[3rem] lg:w-[3rem] lg:h-[5rem]"
+            className="w-[1.6rem] h-[3.4rem] lg:w-[3rem] lg:h-[5rem]"
           />
           <Navigation />
           {/* Mobile Navigation Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden fixed top-4 right-4 z-50 p-2 bg-white rounded-full shadow-lg"
+            className="lg:hidden fixed top-6 right-4 z-50 p-2 bg-white rounded-full shadow-lg"
           >
             {isOpen ? <X className="w-6 h-6 text-primary" /> : <Menu className="w-6 text-primary h-6" />}
           </button>
@@ -85,7 +87,7 @@ const Header = () => {
                 className="fixed inset-0 bg-white z-40 lg:hidden"
               >
                 <motion.ul
-                  className="flex flex-col items-center justify-center h-full space-y-8 p-4"
+                  className="flex flex-col items-center justify-center h-full space-y-4 p-4"
                   initial="closed"
                   animate="open"
                   variants={{

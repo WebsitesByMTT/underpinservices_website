@@ -24,8 +24,8 @@ export default function OurStory() {
     ]
 
     return (
-        <section className="w-full lg:w-[90%] overflow-hidden  mx-auto lg:pb-16 px-4">
-            <h2 className="text-center pb-14 lg:pb-28 tracking-tight text-secondary" style={{ fontSize: 'clamp(2rem, 5vw, 5.3125rem)', lineHeight: 'clamp(3rem, 7vw, 7.0125rem)' }}>
+        <section className="w-full bg-white lg:w-[90%] overflow-hidden  mx-auto lg:pb-16 px-4">
+            <h2 className="text-center pb-14 lg:pb-28 tracking-tight text-secondary" style={{ fontSize: 'clamp(2.5rem, 5vw, 5.3125rem)', lineHeight: 'clamp(4.5rem, 7vw, 7.0125rem)' }}>
                 <span className="font-switzer font-semibold">
                     Our
                 </span>

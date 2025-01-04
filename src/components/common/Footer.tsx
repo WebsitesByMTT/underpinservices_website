@@ -54,9 +54,9 @@ const socialMedia = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white px-4 py-12 md:px-6 lg:px-8 w-full lg:w-[90%] mx-auto">
-      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-        <div className="col-span-full lg:col-span-1">
+    <footer className="bg-white px-4 pb-5 pt-12 md:px-6 lg:px-8 w-full lg:w-[90%] mx-auto">
+      <div className="grid pl-8 lg:pl-0 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <div className="col-span-full lg:col-span-1 lg:block hidden">
           <Image
             src="/assets/images/logo.png"
             alt="Underpin Services Logo"
@@ -67,7 +67,7 @@ export default function Footer() {
           />
         </div>
         {footerSections.map((section) => (
-          <div key={section.title} className="space-y-4">
+          <div key={section.title} className={'space-y-4 md:block hidden'}>
             <h3 className="text-2xl font-semibold text-orange-500">{section.title}</h3>
             <ul className="space-y-2">
               {section.items.map((item) => (
@@ -80,25 +80,28 @@ export default function Footer() {
             </ul>
           </div>
         ))}
-        <div className="space-y-4">
-          <h3 className="text-xl lg:text-2xl font-semibold text-orange-500">Location</h3>
-          <ul className="space-y-2">
-            {locations.map((location) => (
-              <li key={location} className="lg:text-lg text-secondary">{location}</li>
-            ))}
-          </ul>
-        </div>
+
         <div className="space-y-4">
           {contactInfo.map((info) => (
             <div key={info.title} className="space-y-2">
-              <h3 className="text-xl lg:text-2xl font-semibold text-orange-500">{info.title}</h3>
+              <h3 className="text-lg lg:text-2xl font-semibold text-orange-500">{info.title}</h3>
               <p className="text-secondary lg:text-lg">{info.content}</p>
             </div>
           ))}
         </div>
+
+        <div className="space-y-2">
+          <h3 className="text-lg lg:text-2xl font-semibold text-orange-500">Location</h3>
+          <ul className="gap-2 flex flex-wrap items-center">
+            {locations.map((location, ind) => (
+              <li key={location} className="text-base lg:text-lg text-secondary">{location} <span className={`${(ind === locations?.length - 1) && 'hidden'}`}>|</span></li>
+
+            ))}
+
+          </ul>
+        </div>
       </div>
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-        <p className="text-sm text-secondary">&copy; {new Date().getFullYear()} Underpin Services. All rights reserved.</p>
+      <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-between gap-4">
         <div className="flex gap-4">
           {socialMedia.map((item) => (
             <Link key={item.name} href={item.href} className="rounded-full bg-orange-500 p-2 text-white hover:bg-orange-600 transition-colors duration-200">
@@ -107,6 +110,7 @@ export default function Footer() {
             </Link>
           ))}
         </div>
+        <p className="text-sm text-secondary lg:pt-5 text-center">&copy; {new Date()?.getFullYear()} Underpin Services. All rights reserved.</p>
       </div>
     </footer>
   )

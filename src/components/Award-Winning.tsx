@@ -96,15 +96,15 @@ export default function AwardWinning() {
         <section
             ref={sectionRef}
             id="award-section"
-            className="lg:h-screen group transition mx-auto px-4"
+            className="lg:h-screen bg-white group transition mx-auto px-4"
         >
             <div className="relative h-full w-full">
                 {/* Mobile/Tablet Heading */}
                 <div className="mb-12  text-center lg:hidden">
-                    <h2 className="text-2xl font-bold md:text-3xl">
+                    <h2 className="text-3xl font-switzer tracking-wide leading-snug lg:text-4xl">
                         2024 Award-Winning
                         <br />
-                        <span className="text-[#FF6B35]">DIGITAL MARKETING AGENCY</span>
+                        <span className="text-primary text-5xl tracking-wide lg:text-5xl font-sweetSuckerPunch">DIGITAL MARKETING AGENCY</span>
                     </h2>
                 </div>
                 {/* Mobile layout */}

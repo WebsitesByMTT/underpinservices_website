@@ -67,12 +67,12 @@ export default function Carousel() {
     }, [])
 
     return (
-        <div ref={containerRef} className='flex h-screen flex-col justify-center lg:py-2'>
-            <h2 className="text-center pb-10 lg:pb-5 tracking-tight text-secondary" style={{ fontSize: 'clamp(2rem, 5vw, 5.3125rem)', lineHeight: 'clamp(3rem, 7vw, 7.0125rem)' }}>
-                <span className="font-switzer font-semibold">
+        <section ref={containerRef} className='flex h-screen bg-white pt-16 lg:pt-0 flex-col justify-center gap-y-6 lg:gap-y-0 lg:py-2'>
+            <h2 className="text-center  lg:pb-5 tracking-tight text-secondary leading-none text-[2.3rem] lg:text-[3.5rem]">
+                <span className="font-switzer tracking-wide ">
                     Services
                 </span>
-                <span className="block text-primary font-sweetSuckerPunch font-normal " style={{ fontSize: 'clamp(3rem, 7vw, 7.1875rem)', lineHeight: 'clamp(1rem, 4vw, 9.580625rem)' }}>we offer</span>
+                <span className="block text-primary font-sweetSuckerPunch font-thin text-[3.3rem] lg:text-[5.2rem]">we offer</span>
             </h2>
             <div className="overflow-hidden">
                 <div className="flex flex-row">
@@ -89,6 +89,6 @@ export default function Carousel() {
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

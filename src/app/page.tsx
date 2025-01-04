@@ -1,3 +1,4 @@
+import Features from '@/components/Features';
 import { WhyChooseUnderpin } from '@/components/Why-Choose-Underpin';
 import dynamic from 'next/dynamic';
 const Banner = dynamic(() => import('@/components/Banner'));
@@ -17,6 +18,7 @@ export default function Home() {
     <main>
       <Banner />
       <Vision />
+      <Features/>
       <Services />
       <NotJustAverageAgency />
       <WhyChooseUnderpin /> 

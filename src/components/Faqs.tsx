@@ -46,7 +46,7 @@ export default function Faqs() {
     ]
 
     return (
-        <div className="w-[98%] sm:w-[90%] lg:w-[80%] xl:w-[70%] mx-auto px-4 pb-24">
+        <section className="w-[98%] bg-white sm:w-[90%] lg:w-[80%] xl:w-[70%] mx-auto px-4 pt-8 pb-16">
             <h2 className="text-center tracking-tight pb-10 text-primary font-sweetSuckerPunch" style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 'clamp(2rem, 6vw, 6.0125rem)' }}>
                 FAQ'S
             </h2>
@@ -58,15 +58,15 @@ export default function Faqs() {
                         className="bg-gray-50 hover:bg-gray-100 group rounded-md overflow-hidden"
                     >
                         <AccordionTrigger className="px-4 py-3 ">
-                            <span className="text-left group-hover:translate-x-5 transition text-base sm:text-lg lg:text-xl xl:text-2xl">{faq.question}</span>
+                            <span className="text-left w-[85%] lg:w-full  group-hover:translate-x-3 transition text-base sm:text-lg lg:text-xl xl:text-2xl">{faq.question}</span>
                         </AccordionTrigger>
-                        <AccordionContent className="font-normal px-4 text-sm lg:text-lg xl:text-xl pb-3">
+                        <AccordionContent className="font-normal text-black text-opacity-70  translate-x-5 px-4 text-sm lg:text-lg xl:text-xl pb-3">
                             {faq.answer}
                         </AccordionContent>
                     </AccordionItem>
                 ))}
             </Accordion>
-        </div>
+        </section>
     )
 }
 

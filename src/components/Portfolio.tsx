@@ -34,14 +34,14 @@ const Portfolio = () => {
     const titles = ['TRUEAD BLOCKER','WATCHPRTY EXTENTION','SLOT GAMES','TRACKNFLY','TRIPPYBUG','TEJO STUDIO (YOUTUBE CHANNEL)']
     
     return (
-        <section className='py-12 sm:py-16 md:py-20 lg:py-24 w-[95%] lg:w-[90%] mx-auto'>
-            <h2 className="text-center  tracking-tight text-primary font-sweetSuckerPunch text-4xl md:text-5xl lg:text-6xl xl:text-7xl" 
+        <section className='py-14 bg-white sm:py-16 md:py-20 lg:py-24 w-[95%] lg:w-[90%] mx-auto'>
+            <h2 className="text-center pb-2 lg:pb-0  text-primary tracking-wide font-sweetSuckerPunch text-5xl lg:text-6xl xl:text-7xl" 
                 style={{ lineHeight: 'clamp(2rem, 6vw, 6.0125rem)' }}>
                 PORTFOLIO
             </h2>
 
             <div className='py-6 sm:py-8 px-4 sm:px-6 lg:px-8'>
-                <h2 className="text-secondary font-thin text-start tracking-wider font-sweetSuckerPunch text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-8" 
+                <h2 className="text-secondary lg:block hidden font-thin text-start tracking-wider font-sweetSuckerPunch text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-8" 
                     style={{ lineHeight: 'clamp(2rem, 6vw, 6.0125rem)' }}>
                     {titles[expand]}
                 </h2>
@@ -51,7 +51,7 @@ const Portfolio = () => {
                         <button 
                             key={ind} 
                             onClick={() => setExpand(ind)} 
-                            className={`relative transition-all duration-300 ease-in-out rounded-lg overflow-hidden
+                            className={`relative transition-all duration-300 ease-in-out
                                 h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[68.5vh]
                                 ${expand === ind 
                                     ? 'w-full md:w-[50%]' 

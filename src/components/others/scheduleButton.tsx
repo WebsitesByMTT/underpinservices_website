@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function ScheduleButton() {
   return (
-    <div className="z-[999] fixed right-[7%] bottom-[7%]">
+    <div className="lg:block hidden z-[999] fixed right-[7%] bottom-[7%]">
       <button 
         className="
           px-7

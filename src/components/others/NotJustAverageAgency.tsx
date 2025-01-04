@@ -9,12 +9,12 @@ const NotJustAverageAgency = () => {
     }
 
     return (
-        <section className='lg:pt-24 bg-white'>
-            <h2 className="text-center pb-8 lg:pb-10 tracking-tight text-secondary" style={{ fontSize: 'clamp(1.6rem, 4.2vw, 4.5rem)', lineHeight: 'clamp(2rem, 6vw, 6.0125rem)' }}>
+        <section className='bg-white flex flex-col justify-center gap-y-8 h-screen md:h-auto'>
+            <h2 className="text-center  tracking-tight text-secondary text-[2.3rem] lg:text-[3.3rem] xl:text-[4.3rem] capitalize leading-tight">
                 <span className="font-switzer font-semibold">
                     we&apos;re not just your average agency
                 </span>
-                <span className="block text-primary font-sweetSuckerPunch font-normal " style={{ fontSize: 'clamp(2rem, 6vw, 6.1875rem)', lineHeight: 'clamp(3rem, 8vw, 8.580625rem)' }}>we&apos;re your digital fam</span>
+                <span className="block text-primary font-sweetSuckerPunch font-normal text-[2.4rem] lg:text-[3.5rem] xl:text-[4.5rem] tracking-wide uppercase leading-tight">we&apos;re your digital fam</span>
             </h2>
             <div className='flex justify-center px-2'>
                 <div className='relative inline-block group transition'>
@@ -27,7 +27,7 @@ const NotJustAverageAgency = () => {
                     <div className='absolute transition w-[70%] lg:w-[50%] lg:group-hover:opacity-40 text-white  space-y-6 right-4 bottom-5'>
                         <h2 className='text-start text-[.5rem] md:text-2xl lg:text-3xl tracking-wider lg:tracking-wide'>We have over 5 years of experience in digital marketing.We aim for perfection and our excellent team of professional work with a positive attitude and shared values to achieve perfection. We are your dedicated ally in journey of growth and success.</h2>
                     </div>
-                    <button onClick={handelPlayVideo} className='absolute top-[15%] lg:top-[25%] lg:group-hover:opacity-100 opacity-100 lg:opacity-0 transition right-[7%] lg:right-[25%]'>
+                    <button onClick={handelPlayVideo} className='absolute lg:block hidden top-[15%] lg:top-[25%] lg:group-hover:opacity-100 opacity-100 lg:opacity-0 transition right-[7%] lg:right-[25%]'>
                         <Image src={'/assets/images/play.png'} alt='videoPlayButton' width={500} height={500} quality={100} className='w-[50%] lg:w-[100%] cursor-pointer mx-auto' />
                     </button>
                 </div>

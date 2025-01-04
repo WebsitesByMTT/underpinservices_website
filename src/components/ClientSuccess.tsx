@@ -84,10 +84,10 @@ function TestimonialCard({ testimonial }: any) {
 export default function Testimonials() {
     return (
         <section
-            className="relative group w-full overflow-hidden px-4 py-12 lg:py-24"
+            className="relative group bg-white w-full overflow-hidden px-4 py-12 lg:py-24"
         >
             <div className="absolute left-1/2 lg:top-24 -translate-x-1/2 z-20 w-full text-center">
-                <h2 className="text-4xl lg:text-5xl font-switzer xl:text-7xl font-bold">
+                <h2 className="text-4xl lg:text-5xl font-switzer xl:text-7xl leading-snug">
                     Client's
                     <br />
                     <span className="text-[#FF6B35] font-sweetSuckerPunch tracking-wide text-5xl lg:text-6xl xl:text-8xl">
