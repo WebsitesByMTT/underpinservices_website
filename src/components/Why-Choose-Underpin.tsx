@@ -21,7 +21,7 @@ const content = [
         />
       </div>
     ),
-    rotations:'rotate-6'
+    rotations: 'rotate-6'
   },
   {
     icon: <Image
@@ -56,7 +56,7 @@ const content = [
         />
       </div>
     ),
-    rotations:'-rotate-6'
+    rotations: '-rotate-6'
   },
   {
     icon: <Image
@@ -91,7 +91,7 @@ const content = [
         />
       </div>
     ),
-    rotations:'rotate-8'
+    rotations: 'rotate-8'
   },
   {
     icon: <Image
@@ -126,7 +126,7 @@ const content = [
         />
       </div>
     ),
-    rotations:'-rotate-4'
+    rotations: '-rotate-4'
   },
   {
     icon: <Image
@@ -161,16 +161,20 @@ const content = [
         />
       </div>
     ),
-    rotations:'rotate-12'
+    rotations: 'rotate-12'
   },
 ];
-export const WhyChooseUnderpin=()=> {
+export const WhyChooseUnderpin = () => {
   return (
     <div className="pt-5 lg:pt-28 bg-white">
-      <h2 className="text-4xl  sm:text-3xl  md:text-4xl pb-8 pt-10 lg:pt-0 lg:pb-20 lg:text-5xl xl:text-6xl text-center text-secondary leading-snug font-switzer mb-1.5">
-        Why Choose <br /><span className="text-primary font-sweetSuckerPunch text-5xl tracking-wide sm:text-4xl md:text-5xl pb-8 lg:text-6xl xl:text-7xl ">UNDERPIN SERVICES?</span>
-      </h2>
-      <StickyScroll  content={content} />
+      <div className="relative">
+        <h2 className="text-4xl    sm:text-3xl  md:text-4xl pb-8 pt-10 lg:pt-0 lg:pb-20 lg:text-5xl xl:text-6xl text-center text-secondary leading-snug font-switzer mb-1.5">
+          Why Choose <br /><span className="text-primary font-sweetSuckerPunch text-5xl tracking-wide sm:text-4xl md:text-5xl pb-8 lg:text-6xl xl:text-7xl ">UNDERPIN SERVICES?</span>
+        </h2>
+        <div className="w-[50%] h-[5rem] lg:block hidden shadow-[0px_59px_55px_2px_rgb(255,255,255)] absolute -bottom-0 z-50"></div>
+      </div>
+
+      <StickyScroll content={content} />
     </div>
   );
 }

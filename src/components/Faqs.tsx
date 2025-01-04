@@ -58,9 +58,9 @@ export default function Faqs() {
                         className="bg-gray-50 hover:bg-gray-100 group rounded-md overflow-hidden"
                     >
                         <AccordionTrigger className="px-4 py-3 ">
-                            <span className="text-left w-[85%] lg:w-full  group-hover:translate-x-3 transition text-base sm:text-lg lg:text-xl xl:text-2xl">{faq.question}</span>
+                            <span className="text-left w-[85%] lg:w-full  lg:group-hover:translate-x-3 transition text-base sm:text-lg lg:text-xl xl:text-2xl">{faq.question}</span>
                         </AccordionTrigger>
-                        <AccordionContent className="font-normal text-black text-opacity-70  translate-x-5 px-4 text-sm lg:text-lg xl:text-xl pb-3">
+                        <AccordionContent className="font-normal text-black text-opacity-70  lg:translate-x-5 translate-x-3 px-4 text-sm lg:text-lg xl:text-xl pb-3">
                             {faq.answer}
                         </AccordionContent>
                     </AccordionItem>

@@ -117,7 +117,7 @@ export default function AwardWinning() {
                                 width={1000}
                                 height={1000}
                                 quality={100}
-                                className="h-[11rem] w-[11rem] animation-y object-contain md:h-24 md:w-24"
+                                className="h-[7.5rem] w-[7.5rem] animation-y object-contain md:h-24 md:w-24"
                             />
                         </div>
                     ))}
