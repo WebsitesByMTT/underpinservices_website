@@ -13,10 +13,9 @@ interface NavLink {
 }
 
 const Navlinks: NavLink[] = [
-  // Add your navigation links here
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Services', href: '/services' },
+  { name: 'Services', href: '/digital-marketing-service' },
   { name: 'Portfolio', href: '/portfolio' },
   { name: 'Packages', href: '/package' },
   { name: 'Industry', href: '/industry' },
@@ -67,7 +66,7 @@ const Header = () => {
             quality={100}
             className="w-[1.6rem] h-[3.4rem] lg:w-[3rem] lg:h-[5rem]"
           />
-          <Navigation />
+          <Navigation Navlinks={Navlinks} />
           {/* Mobile Navigation Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -99,7 +98,7 @@ const Header = () => {
                     }
                   }}
                 >
-                  {Navlinks.map((link, index) => (
+                  {Navlinks?.map((link, index) => (
                     <motion.li
                       key={index}
                       variants={{
